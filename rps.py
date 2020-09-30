@@ -1,36 +1,67 @@
-from random import randint
+# Rock,paper and scissor
+while(True):
+    print("Welcome to Rock,paper and scissor Game")
+    name=input("Enter your name:\n")
+    print(f"Hi {name},\n We will play Rock,paper and scissor Game for 10 times &\n then, I will tell your score \n So Let the game begin.")
 
-x = randint(1,3)
-user = -1
-win = 0
-
-while (win != 1):
-	x = randint(1,3)
-	print "1.Rock"
-	print "2.Paper"
-	print "3.Scissor"
-	user = int(raw_input("Choice: "))
-	if (x == 1):
-		if (user == 1):
-			print "Tie do again"
-		elif (user == 2):
-			print "You Lose"
-		elif (user == 3):
-			print "You Win"
-			win = 1;
-	elif (x == 2):
-		if (user == 1):
-			print "You Win"
-			win = 1
-		elif (user == 2):
-			print "Tie do again"
-		elif (user == 3):
-			print "You Lose"
-	elif (x == 3):
-		if (user == 1):
-			print "You Lose"
-		elif (user == 2):
-			print "Win"
-			win = 1;
-		elif (user == 3):
-			print "Tie do again"
+    import random
+    i = 0
+    z = 0
+    d=0
+    l=0
+    while (i < 10):
+        o = random.randint(0, 2)
+        # o=0 is rock, o=1 is paper, o=2 is scissor
+        x = input("Enter your choice(rock,paper and scissor):\n")
+        oh = x.lower()
+        if o == 0 and oh == "rock":
+            d=d+1
+            print("It's a draw")
+        elif o == 1 and oh == "paper":
+            d = d + 1
+            print("It's a draw")
+        elif o == 2 and oh == "scissor":
+            d = d + 1
+            print("It's a draw")
+        elif o == 0 and oh == "paper":
+            z = z + 1
+            print("You won this time")
+        elif o == 0 and oh == "scissor":
+            l=l+1
+            print("You lose this time")
+        elif o == 1 and oh == "rock":
+            l=l+1
+            print("You lose this time")
+        elif o == 1 and oh == "scissor":
+            z = z + 1
+            print("You won this time")
+        elif o == 2 and oh == "rock":
+            z = z + 1
+            print("You won this time")
+        elif o == 2 and oh == "paper":
+            l=l+1
+            print("You lose this time")
+        else:
+            print("enter a valid choice")
+        i = i + 1
+    print(f"you won {z} times,lose {l} time and it was a draw {d} times.")
+    import time
+    time=time.asctime(time.localtime(time.time()))
+    yn=input("Would you like to see scoreboard?\n")
+    y=yn.lower()
+    f=open("rockpaperandscissorgame.txt","a")
+    f.write(f"At {time}, {name} won {z} times,lose {l} time and it was a draw {d} times.\n")
+    f.close()
+    if y=="yes":
+        f=open("rockpaperandscissorgame.txt")
+        print(f.read())
+        print("Thank You")
+        f.close()
+    else:
+        print("Thank You \n Hope You will play again")
+    play1=input("Would you like to play again?:\n")
+    play=play1.lower()
+    if play=="yes":
+        pass
+    else:
+        break
